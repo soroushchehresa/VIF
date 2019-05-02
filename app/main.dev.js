@@ -1,15 +1,6 @@
+// @flow
 /* eslint global-require: off */
 
-/**
- * This module executes inside of electron's main process. You can start
- * electron renderer process from here and communicate with the other processes
- * through IPC.
- *
- * When running `yarn build` or `yarn build-main`, this file is compiled to
- * `./app/main.prod.js` using webpack. This gives us some performance wins.
- *
- * @flow
- */
 import { app, BrowserWindow } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
@@ -69,8 +60,14 @@ app.on('ready', async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728
+    width: 360,
+    height: 240,
+    vibrancy: 'ultra-dark',
+    transparent: true,
+    resizable: false,
+    titleBarStyle: 'hiddenInset',
+    maximizable: false,
+    backgroundColor: '#373834'
   });
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);
