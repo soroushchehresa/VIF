@@ -1,7 +1,9 @@
 // @flow
 
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import fs from 'fs';
 import base64ImageToFile from 'base64image-to-file';
+import CircularProgressbar from 'react-circular-progressbar';
 import gifshot from 'gifshot';
 import path from 'path';
 import styles from './Home.css';
@@ -11,7 +13,8 @@ export default class Home extends Component {
     super(props);
     this.state = {
       activeDropZone: false,
-      captureProgress: null
+      captureProgress: null,
+      saving: false
     };
   }
 
@@ -28,7 +31,7 @@ export default class Home extends Component {
 
   ondrop = e => {
     e.preventDefault();
-    const { activeDropZone } = this.state;
+    const { activeDropZone, saving } = this.state;
     if (activeDropZone) {
       this.setState({ activeDropZone: false });
     }
@@ -47,21 +50,17 @@ export default class Home extends Component {
         gifHeight: 300,
         video: filePath,
         interval: 0.1,
-        numFrames: 20,
+        numFrames: 10,
         frameDuration: 2,
-        text: 'oooow',
-        fontWeight: 'bold',
-        fontSize: '30px',
-        fontFamily: 'Arial',
-        fontColor: '#ffffff',
-        textAlign: 'center',
-        textBaseline: 'bottom',
         sampleInterval: 20,
-        numWorkers: 10,
+        numWorkers: 100,
         progressCallback: captureProgress => {
           this.setState({ captureProgress });
           if (captureProgress === 1) {
             this.setState({ captureProgress: null });
+          }
+          if (!saving) {
+            this.setState({ saving: true });
           }
         }
       },
@@ -70,9 +69,10 @@ export default class Home extends Component {
           base64ImageToFile(
             obj.image,
             output,
-            filePath.split('/').splice(-1, 1),
+            `${filePath.split('/')
+              .splice(-1, 1)[0]}-${Math.floor(Math.random() * 899999 + 100000)}`,
             () => {
-              alert('Done!');
+              this.setState({ saving: false });
             }
           );
         }
@@ -90,22 +90,40 @@ export default class Home extends Component {
   };
 
   render() {
-    const { activeDropZone, captureProgress } = this.state;
+    const { activeDropZone, captureProgress, saving } = this.state;
     return (
       <div
         onDragOver={this.ondragover}
         onDrop={this.ondrop}
         onDragLeave={this.ondragleave}
         className={styles.container}
-        style={{ background: activeDropZone ? 'blue' : 'transparent' }}
+        style={{ border: activeDropZone ? '5px solid #2f7cf6' : 'none' }}
       >
-        {!captureProgress && <p>Drop a Video to Convert to GIF</p>}
-        {captureProgress && (
-          <Fragment>
-            <p>Converting...</p>
-            <p>{Math.round(captureProgress * 100 * 10) / 10}%</p>
-          </Fragment>
-        )}
+        {
+          captureProgress
+            ? <div className={styles.progressbarWrapper}>
+              <CircularProgressbar
+                percentage={Math.round(captureProgress * 100 * 10) / 10}
+                text={`${Math.round(captureProgress * 100 * 10) / 10}%`}
+                strokeWidth={2}
+                styles={{
+                  text: {
+                    fill: '#2f7cf6',
+                    dominantBaseline: 'middle',
+                    textAnchor: 'middle'
+                  },
+                  path: {
+                    stroke: '#2f7cf6'
+                  },
+                  trail: {
+                    stroke: 'transparent'
+                  }
+                }}
+              />
+            </div>
+            : saving ? <p>Saving...</p>
+            : <p>Drop a Video to Convert to GIF</p>
+        }
       </div>
     );
   }

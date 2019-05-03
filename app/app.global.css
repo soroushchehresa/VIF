@@ -7,9 +7,14 @@
 body {
   position: relative;
   color: white;
-  height: calc(100vh - 15px);
+  height: 100vh;
   font-family: Arial, Helvetica, Helvetica Neue, serif;
   overflow-y: hidden;
+  margin: 0;
+}
+
+body > video {
+  pointer-events: none;
 }
 
 *,

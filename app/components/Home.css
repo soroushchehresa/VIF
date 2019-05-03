@@ -7,6 +7,7 @@
   justify-content: center;
   outline: none;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .container p {
@@ -14,16 +15,29 @@
   text-align: center;
   color: #a8a8a8;
   animation: bounce 2s infinite;
+  pointer-events: none;
+  line-height: 0;
+}
+
+.container img {
+  width: 70px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.progressbarWrapper {
+  width: 150px;
+  margin-top: 20px;
 }
 
 @keyframes bounce {
   0% {
-    font-size: 14px;
+    transform: scale(1.1);
   }
   50% {
-    font-size: 15px;
+    transform: scale(1);
   }
   100% {
-    font-size: 14px;
+    transform: scale(1.1);
   }
 }
