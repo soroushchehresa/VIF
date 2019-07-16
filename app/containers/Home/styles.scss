@@ -8,26 +8,20 @@
   outline: none;
   flex-direction: column;
   box-sizing: border-box;
-}
 
-.container p {
-  font-size: 14px;
-  text-align: center;
-  color: #a8a8a8;
-  animation: bounce 2s infinite;
-  pointer-events: none;
-  line-height: 0;
-}
+  & > .centerText {
+    font-size: 14px;
+    text-align: center;
+    color: #a8a8a8;
+    animation: bounce 2s infinite;
+    pointer-events: none;
+    line-height: 0;
+  }
 
-.container img {
-  width: 70px;
-  pointer-events: none;
-  opacity: 0.6;
-}
-
-.progressbarWrapper {
-  width: 150px;
-  margin-top: 20px;
+  & > .progressbarWrapper {
+    width: 150px;
+    margin-top: 20px;
+  }
 }
 
 @keyframes bounce {
