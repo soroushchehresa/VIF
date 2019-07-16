@@ -1,14 +1,13 @@
 // @flow
 
 import React, { Component } from 'react';
-import fs from 'fs';
 import base64ImageToFile from 'base64image-to-file';
 import CircularProgressbar from 'react-circular-progressbar';
 import gifshot from 'gifshot';
 import path from 'path';
-import styles from './Home.css';
+import styles from './styles.scss';
 
-export default class Home extends Component {
+export default class Index extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -100,30 +99,30 @@ export default class Home extends Component {
         style={{ border: activeDropZone ? '5px solid #2f7cf6' : 'none' }}
       >
         {
-          captureProgress
-            ? <div className={styles.progressbarWrapper}>
-              <CircularProgressbar
-                percentage={Math.round(captureProgress * 100 * 10) / 10}
-                text={`${Math.round(captureProgress * 100 * 10) / 10}%`}
-                strokeWidth={2}
-                styles={{
-                  text: {
-                    fill: '#2f7cf6',
-                    dominantBaseline: 'middle',
-                    textAnchor: 'middle'
-                  },
-                  path: {
-                    stroke: '#2f7cf6'
-                  },
-                  trail: {
-                    stroke: 'transparent'
-                  }
-                }}
-              />
-            </div>
-            : saving ? <p>Saving...</p>
-            : <p>Drop a Video to Convert to GIF</p>
+          captureProgress &&
+          <div className={styles.progressbarWrapper}>
+            <CircularProgressbar
+              percentage={Math.round(captureProgress * 100 * 10) / 10}
+              text={`${Math.round(captureProgress * 100 * 10) / 10}%`}
+              strokeWidth={2}
+              styles={{
+                text: {
+                  fill: '#2f7cf6',
+                  dominantBaseline: 'middle',
+                  textAnchor: 'middle'
+                },
+                path: {
+                  stroke: '#2f7cf6'
+                },
+                trail: {
+                  stroke: 'transparent'
+                }
+              }}
+            />
+          </div>
         }
+        {saving && !captureProgress && <p className={styles.centerText}>Saving...</p>}
+        {!saving && <p className={styles.centerText}>Drop a Video to Convert to GIF</p>}
       </div>
     );
   }
