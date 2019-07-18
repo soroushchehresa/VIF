@@ -22,8 +22,6 @@
     <img src="https://img.shields.io/github/downloads/soroushchehresa/vif/v1.0.0/total.svg" alt="latest download">
   </a>
 </div>
-
-# Vif
 This is a cross-platform desktop application to convert videos to high-quality GIFs like [Gifski](https://github.com/sindresorhus/Gifski) based on [yahoo/gifshot](https://github.com/yahoo/gifshot).
 
 <br />
