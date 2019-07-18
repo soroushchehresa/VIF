@@ -63,7 +63,7 @@ app.on('ready', async () => {
     show: false,
     width: 360,
     height: 240,
-    vibrancy: 'ultra-dark',
+    vibrancy: 'dark',
     transparent: true,
     resizable: false,
     titleBarStyle: 'hiddenInset',
