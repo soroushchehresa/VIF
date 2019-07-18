@@ -1,8 +1,10 @@
 // @flow
 
 import React, { Component } from 'react';
+import fs from 'fs';
 import base64ImageToFile from 'base64image-to-file';
 import CircularProgressbar from 'react-circular-progressbar';
+import getDimensions from 'get-video-dimensions';
 import gifshot from 'gifshot';
 import path from 'path';
 import styles from './styles.scss';
@@ -35,48 +37,59 @@ export default class Index extends Component {
       this.setState({ activeDropZone: false });
     }
     const filePath = e.dataTransfer.files[0].path;
-    const output = path.join(
-      filePath
-        .split('/')
-        .reverse()
-        .slice(1)
-        .reverse()
-        .join('/')
-    );
-    gifshot.createGIF(
-      {
-        gifWidth: 300,
-        gifHeight: 300,
-        video: filePath,
-        interval: 0.1,
-        numFrames: 10,
-        frameDuration: 2,
-        sampleInterval: 20,
-        numWorkers: 100,
-        progressCallback: captureProgress => {
-          this.setState({ captureProgress });
-          if (captureProgress === 1) {
-            this.setState({ captureProgress: null });
-          }
-          if (!saving) {
-            this.setState({ saving: true });
-          }
-        }
-      },
-      obj => {
-        if (!obj.error) {
-          base64ImageToFile(
-            obj.image,
-            output,
-            `${filePath.split('/')
-              .splice(-1, 1)[0]}-${Math.floor(Math.random() * 899999 + 100000)}`,
-            () => {
-              this.setState({ saving: false });
+    const outputPath = path.join(filePath.split('/')
+      .reverse()
+      .slice(1)
+      .reverse()
+      .join('/'));
+    getDimensions(filePath)
+      .then(({ width, height }) => {
+        gifshot.createGIF(
+          {
+            gifWidth: width,
+            gifHeight: height,
+            video: filePath,
+            interval: 0.1,
+            numFrames: 10,
+            frameDuration: 2,
+            sampleInterval: 20,
+            numWorkers: 100,
+            progressCallback: captureProgress => {
+              this.setState({ captureProgress });
+              if (captureProgress === 1) {
+                this.setState({ captureProgress: null });
+              }
+              if (!saving) {
+                this.setState({ saving: true });
+              }
             }
-          );
-        }
-      }
-    );
+          },
+          obj => {
+            if (!obj.error) {
+              let outputFileName = '';
+              if (fs.existsSync(`${filePath}.gif`)) {
+                outputFileName = `${filePath.split('/')
+                  .splice(-1, 1)[0]}-${Math.floor(Math.random() * 899999 + 100000)}`;
+              } else {
+                outputFileName = `${filePath.split('/')
+                  .splice(-1, 1)[0]}`;
+              }
+              base64ImageToFile(
+                obj.image,
+                outputPath,
+                outputFileName,
+                () => {
+                  this.setState({ saving: false });
+                }
+              );
+            }
+          }
+        );
+        return true;
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   ondragleave = e => {
