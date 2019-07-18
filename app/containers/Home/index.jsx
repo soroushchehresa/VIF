@@ -5,6 +5,7 @@ import fs from 'fs';
 import base64ImageToFile from 'base64image-to-file';
 import CircularProgressbar from 'react-circular-progressbar';
 import getDimensions from 'get-video-dimensions';
+import { getVideoDurationInSeconds } from 'get-video-duration';
 import gifshot from 'gifshot';
 import path from 'path';
 import styles from './styles.scss';
@@ -44,47 +45,51 @@ export default class Index extends Component {
       .join('/'));
     getDimensions(filePath)
       .then(({ width, height }) => {
-        gifshot.createGIF(
-          {
-            gifWidth: width,
-            gifHeight: height,
-            video: filePath,
-            interval: 0.1,
-            numFrames: 10,
-            frameDuration: 2,
-            sampleInterval: 20,
-            numWorkers: 100,
-            progressCallback: captureProgress => {
-              this.setState({ captureProgress });
-              if (captureProgress === 1) {
-                this.setState({ captureProgress: null });
-              }
-              if (!saving) {
-                this.setState({ saving: true });
-              }
-            }
-          },
-          obj => {
-            if (!obj.error) {
-              let outputFileName = '';
-              if (fs.existsSync(`${filePath}.gif`)) {
-                outputFileName = `${filePath.split('/')
-                  .splice(-1, 1)[0]}-${Math.floor(Math.random() * 899999 + 100000)}`;
-              } else {
-                outputFileName = `${filePath.split('/')
-                  .splice(-1, 1)[0]}`;
-              }
-              base64ImageToFile(
-                obj.image,
-                outputPath,
-                outputFileName,
-                () => {
-                  this.setState({ saving: false });
+        const streamFile = fs.createReadStream(filePath);
+        getVideoDurationInSeconds(streamFile)
+          .then(videoDuration => {
+            gifshot.createGIF(
+              {
+                gifWidth: width,
+                gifHeight: height,
+                video: filePath,
+                numFrames: ((Math.round(videoDuration) * 1000) / 100) - (Math.round(videoDuration) * 2),
+                progressCallback: captureProgress => {
+                  this.setState({ captureProgress });
+                  if (captureProgress === 1) {
+                    this.setState({ captureProgress: null });
+                  }
+                  if (!saving) {
+                    this.setState({ saving: true });
+                  }
                 }
-              );
-            }
-          }
-        );
+              },
+              obj => {
+                if (!obj.error) {
+                  let outputFileName = '';
+                  if (fs.existsSync(`${filePath}.gif`)) {
+                    outputFileName = `${filePath.split('/')
+                      .splice(-1, 1)[0]}-${Math.floor(Math.random() * 899999 + 100000)}`;
+                  } else {
+                    outputFileName = `${filePath.split('/')
+                      .splice(-1, 1)[0]}`;
+                  }
+                  base64ImageToFile(
+                    obj.image,
+                    outputPath,
+                    outputFileName,
+                    () => {
+                      this.setState({ saving: false });
+                    }
+                  );
+                }
+              }
+            );
+            return true;
+          })
+          .catch(error => {
+            console.log(error);
+          });
         return true;
       })
       .catch(error => {
@@ -117,12 +122,13 @@ export default class Index extends Component {
             <CircularProgressbar
               percentage={Math.round(captureProgress * 100 * 10) / 10}
               text={`${Math.round(captureProgress * 100 * 10) / 10}%`}
-              strokeWidth={2}
+              strokeWidth={2.5}
               styles={{
                 text: {
                   fill: '#2f7cf6',
                   dominantBaseline: 'middle',
-                  textAnchor: 'middle'
+                  textAnchor: 'middle',
+                  fontSize: 18
                 },
                 path: {
                   stroke: '#2f7cf6'
