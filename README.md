@@ -7,7 +7,7 @@
 <div>
   <!-- Version -->
   <a href="https://marktext.github.io/website">
-    <img src="https://badge.fury.io/gh/soroushchehresa%2Fvif.svg" alt="website">
+    <img src="https://badge.fury.io/gh/soroushchehresa%2FVif.svg" alt="website">
   </a>
   <!-- License -->
   <a href="https://github.com/soroushchehresa/vif/blob/master/LICENSE">
