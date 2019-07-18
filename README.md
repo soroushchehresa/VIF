@@ -39,7 +39,6 @@ This is a cross-platform desktop application to convert videos to high-quality G
 | [![latest version](https://img.shields.io/github/downloads/soroushchehresa/Vif/latest/vif-1.0.0.dmg.svg)](https://github.com/soroushchehresa/Vif/releases/download/v1.0.0/vif-1.0.0.dmg) | [![latest version](https://img.shields.io/github/downloads/soroushchehresa/Vif/latest/vif.Setup.1.0.0.exe.svg)](https://github.com/soroushchehresa/Vif/releases/download/v1.0.0/vif.Setup.1.0.0.exe) | [![latest version](https://img.shields.io/github/downloads/soroushchehresa/Vif/latest/vif.1.0.0.AppImage.svg)](https://github.com/soroushchehresa/Vif/releases/download/v1.0.0/vif-1.0.0-x86_64.AppImage) |
 
 <br />
-<br />
 
 ## This project implemented by the following technologies:
 * [Electron](https://github.com/electron)
