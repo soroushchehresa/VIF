@@ -7,7 +7,7 @@
 <div>
   <!-- Version -->
   <a href="https://marktext.github.io/website">
-    <img src="https://badge.fury.io/gh/soroushchehresa%2Fvif.svg" alt="website">
+    <img src="https://badge.fury.io/gh/soroushchehresa%2FVif.svg" alt="website">
   </a>
   <!-- License -->
   <a href="https://github.com/soroushchehresa/vif/blob/master/LICENSE">
@@ -36,7 +36,7 @@ This is a cross-platform desktop application to convert videos to high-quality G
 
 | ![](https://raw.githubusercontent.com/wiki/ryanoasis/nerd-fonts/screenshots/v1.0.x/mac-pass-sm.png)                                                                                                  | ![](https://raw.githubusercontent.com/wiki/ryanoasis/nerd-fonts/screenshots/v1.0.x/windows-pass-sm.png)                                                                                                          | ![](https://raw.githubusercontent.com/wiki/ryanoasis/nerd-fonts/screenshots/v1.0.x/linux-pass-sm.png)                                                                                                                        |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| [![latest version](https://img.shields.io/github/downloads/soroushchehresa/vif/latest/vif-1.0.0.dmg.svg)](https://github.com/soroushchehresa/vif/releases/download/v1.0.0/vif-1.0.0.dmg) | [![latest version](https://img.shields.io/github/downloads/soroushchehresa/vif/latest/vif.Setup.1.0.0.exe.svg)](https://github.com/soroushchehresa/vif/releases/download/v1.0.0/vif.Setup.1.0.0.exe) | [![latest version](https://img.shields.io/github/downloads/soroushchehresa/vif/latest/vif.1.0.0.AppImage.svg)](https://github.com/soroushchehresa/vif/releases/download/v1.0.0/vif.1.0.0.AppImage) |
+| [![latest version](https://img.shields.io/github/downloads/soroushchehresa/vif/latest/vif-1.0.0.dmg.svg)](https://github.com/soroushchehresa/vif/releases/download/v1.0.0/vif-1.0.0.dmg) | [![latest version](https://img.shields.io/github/downloads/soroushchehresa/vif/latest/vif.Setup.1.0.0.exe.svg)](https://github.com/soroushchehresa/vif/releases/download/v1.0.0/vif.Setup.1.0.0.exe) | [![latest version](https://img.shields.io/github/downloads/soroushchehresa/vif/latest/vif.1.0.0.AppImage.svg)](https://github.com/soroushchehresa/Vif/releases/download/v1.0.0/vif-1.0.0-x86_64.AppImage) |
 
 <br />
 <br />
