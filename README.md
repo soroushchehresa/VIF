@@ -2,6 +2,8 @@
   <img src="http://i.imgur.com/ATe9QBz.png" width="100%" />
 </p>
 
+<br />
+
 <div>
   <!-- Version -->
   <a href="https://marktext.github.io/website">
