@@ -2,8 +2,12 @@
   <img src="http://i.imgur.com/U6zU9AY.png" width="100%" />
 </p>
 
+# Vif
+This is a cross-platform desktop application to convert videos to high-quality GIFs like [Gifski](https://github.com/sindresorhus/Gifski) based on [yahoo/gifshot](https://github.com/yahoo/gifshot).
+
 <br />
 
+## Download and Install:
 <div>
   <!-- Version -->
   <a href="https://marktext.github.io/website">
@@ -22,13 +26,12 @@
     <img src="https://img.shields.io/github/downloads/soroushchehresa/vif/v1.0.0/total.svg" alt="latest download">
   </a>
 </div>
-This is a cross-platform desktop application to convert videos to high-quality GIFs like [Gifski](https://github.com/sindresorhus/Gifski) based on [yahoo/gifshot](https://github.com/yahoo/gifshot).
 
 <br />
 
-## Download and Install:
-
 ![platform](https://img.shields.io/static/v1.svg?label=Platform&message=Linux-64%20|%20macOS-64%20|%20Win-32%20|%20Win-64&style=for-the-badge)
+
+<br />
 
 | ![](https://raw.githubusercontent.com/wiki/ryanoasis/nerd-fonts/screenshots/v1.0.x/mac-pass-sm.png)                                                                                                  | ![](https://raw.githubusercontent.com/wiki/ryanoasis/nerd-fonts/screenshots/v1.0.x/windows-pass-sm.png)                                                                                                          | ![](https://raw.githubusercontent.com/wiki/ryanoasis/nerd-fonts/screenshots/v1.0.x/linux-pass-sm.png)                                                                                                                        |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
