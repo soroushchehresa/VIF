@@ -4909,6 +4909,10 @@ fd-slicer@~1.0.1:
   dependencies:
     pend "~1.2.0"
 
+ffprobe-static@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/ffprobe-static/-/ffprobe-static-3.0.0.tgz#479689c8a237987beca5627968f3d87429bf569d"
+
 figgy-pudding@^3.1.0, figgy-pudding@^3.5.1:
   version "3.5.1"
   resolved "https://registry.npmjs.org/figgy-pudding/-/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"
@@ -5297,6 +5301,14 @@ get-video-dimensions@^1.0.0:
   resolved "https://registry.yarnpkg.com/get-video-dimensions/-/get-video-dimensions-1.0.0.tgz#fc7e5ac81c392441f5b86d50dd77838a9b53147a"
   dependencies:
     mz "^1.2.1"
+
+get-video-duration@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/get-video-duration/-/get-video-duration-1.0.3.tgz#c8ef469902f5f9a2ec56ed390a65d32f7101d587"
+  dependencies:
+    execa "^1.0.0"
+    ffprobe-static "^3.0.0"
+    is-stream "^1.1.0"
 
 getpass@^0.1.1:
   version "0.1.7"

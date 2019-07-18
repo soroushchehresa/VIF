@@ -1,8 +1,8 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
-  "version": "0.17.1",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "name": "vif",
+  "productName": "Vif",
+  "version": "1.0.0",
+  "description": "cross-platform desktop application to convert videos to high-quality GIFs",
   "scripts": {
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
     "build-dll": "cross-env NODE_ENV=development webpack --config ./configs/webpack.config.renderer.dev.dll.babel.js --colors",
@@ -56,8 +56,8 @@
   },
   "main": "./app/main.prod.js",
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.develar.ElectronReact",
+    "productName": "Vif",
+    "appId": "org.develar.Vif",
     "files": [
       "app/dist/",
       "app/app.html",
@@ -100,19 +100,19 @@
     },
     "publish": {
       "provider": "github",
-      "owner": "electron-react-boilerplate",
-      "repo": "electron-react-boilerplate",
+      "owner": "soroushchehresa",
+      "repo": "Vif",
       "private": false
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electron-react-boilerplate/electron-react-boilerplate.git"
+    "url": "git+https://github.com/soroushchehresa/Vif.git"
   },
   "author": {
-    "name": "Electron React Boilerplte Maintainers",
-    "email": "electronreactboilerplate@gmail.com",
-    "url": "https://electron-react-boilerplate.js.org"
+    "name": "Soroush Chehresa",
+    "email": "s1996ch@gmail.com",
+    "url": "https://github.com/soroushchehresa/Vif"
   },
   "contributors": [
     {
@@ -128,20 +128,20 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues"
+    "url": "https://github.com/soroushchehresa/Vif/issues"
   },
   "keywords": [
-    "electron",
-    "boilerplate",
+    "vif",
+    "video-to-gif",
+    "gif",
+    "gif-animation",
+    "converter",
+    "video-converter",
+    "convert-videos",
     "react",
-    "redux",
-    "flow",
-    "sass",
-    "webpack",
-    "hot",
-    "reload"
+    "electron-app"
   ],
-  "homepage": "https://github.com/electron-react-boilerplate/electron-react-boilerplate#readme",
+  "homepage": "https://github.com/soroushchehresa/Vif#readme",
   "jest": {
     "testURL": "http://localhost/",
     "moduleNameMapper": {
@@ -261,6 +261,7 @@
     "electron-log": "^2.2.17",
     "electron-updater": "^3.2.3",
     "get-video-dimensions": "^1.0.0",
+    "get-video-duration": "^1.0.3",
     "gifshot": "^0.4.5",
     "history": "^4.7.2",
     "is-video": "^1.0.1",
@@ -282,7 +283,7 @@
     "yarn": ">=0.21.3"
   },
   "collective": {
-    "url": "https://opencollective.com/electron-react-boilerplate-594"
+    "url": ""
   },
   "browserslist": "electron 1.6"
 }
