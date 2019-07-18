@@ -47,8 +47,6 @@ This is a cross-platform desktop application to convert videos to high-quality G
 * [gifshot](https://github.com/yahoo/gifshot)
 * and so on ...
 
-<br />
-
 ## Support
 <a href="https://www.patreon.com/soroushchehresa">
 	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
