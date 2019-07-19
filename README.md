@@ -24,7 +24,7 @@
 </div>
 
 # Vif
-This is a cross-platform desktop application to convert videos to high-quality GIFs like [Gifski](https://github.com/sindresorhus/Gifski) based on [yahoo/gifshot](https://github.com/yahoo/gifshot).
+**This is a cross-platform desktop application to convert videos to high-quality GIFs like [Gifski](https://github.com/sindresorhus/Gifski) based on [yahoo/gifshot](https://github.com/yahoo/gifshot).**
 
 <img src="http://i.imgur.com/XM6K2Hg.png" width="100%">
 
