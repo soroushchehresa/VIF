@@ -50,7 +50,7 @@ app.on('window-all-closed', () => {
   }
 });
 
-app.on('browser-window-created',function(e, window) {
+app.on('browser-window-created', function(e, window) {
   window.setMenu(null);
 });
 
@@ -73,6 +73,9 @@ app.on('ready', async () => {
     maximizable: false,
     backgroundColor: '#373834',
     frame: false,
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);
