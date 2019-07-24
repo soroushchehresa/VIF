@@ -4,6 +4,7 @@
 import { app, BrowserWindow } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
+import is from 'electron-is';
 
 export default class AppUpdater {
   constructor() {
@@ -62,21 +63,27 @@ app.on('ready', async () => {
     await installExtensions();
   }
 
-  mainWindow = new BrowserWindow({
+  let options = {
     show: false,
     width: 360,
     height: 240,
+    backgroundColor: '#373834',
     vibrancy: 'dark',
     transparent: true,
     resizable: false,
     titleBarStyle: 'hiddenInset',
     maximizable: false,
-    backgroundColor: '#373834',
     frame: false,
     webPreferences: {
       nodeIntegration: true
     }
-  });
+  };
+
+  if (is.macOS()) {
+    delete options.backgroundColor;
+  }
+
+  mainWindow = new BrowserWindow(options);
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);
 
