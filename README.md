@@ -23,7 +23,7 @@
   </a>
 </div>
 
-# Vif
+# 💨 Vif
 This is a cross-platform desktop application to convert videos to high-quality GIFs like [Gifski](https://github.com/sindresorhus/Gifski) based on [yahoo/gifshot](https://github.com/yahoo/gifshot).
 
 Vif supports all the video formats that OS and HTML5 supports (mp4, mov, HEVC, mp4, ogg, ogv, webm and etc).
