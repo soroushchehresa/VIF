@@ -5,8 +5,7 @@
 <br />
 
 # 💨 Vif
-This is a simple cross-platform desktop application to convert videos to high-quality GIFs.
-
+This is a simple cross-platform desktop application to convert videos to high-quality GIFs. <br>
 Vif supports all the video formats that OS and HTML5 supports (mp4, mov, HEVC, mp4, ogg, ogv, webm and etc).
 
 <img src="http://i.imgur.com/XM6K2Hg.png" width="100%">
