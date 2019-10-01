@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="http://i.imgur.com/ATe9QBz.png" width="90%" />
+  <img src="http://i.imgur.com/ATe9QBz.png" width="85%" />
 </p>
 
 # 💨 Vif
